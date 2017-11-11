@@ -3,11 +3,86 @@
     <channel>
         <title>William Spies</title>
         <description>Technical Stash and Personal Blog of William Spies</description>
-        <link>/</link>
-        <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 15 Oct 2017 02:11:59 -0500</pubDate>
-        <lastBuildDate>Sun, 15 Oct 2017 02:11:59 -0500</lastBuildDate>
-        <generator>Jekyll v3.0.1</generator>
+        <link>http://localhost:4000/</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Sat, 11 Nov 2017 17:00:23 -0600</pubDate>
+        <lastBuildDate>Sat, 11 Nov 2017 17:00:23 -0600</lastBuildDate>
+        <generator>Jekyll v3.6.0</generator>
+        
+            <item>
+                <title>Got the Job!</title>
+                <description>&lt;p&gt;After sending over 50+ job applications, I finally got a job at a healthcare software company! The company, &lt;a href=&quot;https://www.interfaceware.com/&quot;&gt;iNTERFACEWARE&lt;/a&gt; specializes in making a healthcare integration engine called Iguana, which they use to solve healthcare system integration problems for healthcare organizations.&lt;/p&gt;
+
+&lt;p&gt;In the end, I got the job not by sending in my resume for screening, but by contacting the CEO of the company directly (I had met him a year earlier at a career event at my school), and asking to meet up for a quick coffee at their offices. He agreed, and the quick coffee turned into my first interview.&lt;/p&gt;
+
+&lt;p&gt;A month later, I got the job.&lt;/p&gt;
+</description>
+                <pubDate>Mon, 28 Aug 2017 00:00:00 -0500</pubDate>
+                <link>http://localhost:4000/2017/dummy5</link>
+                <guid isPermaLink="true">http://localhost:4000/2017/dummy5</guid>
+                
+                
+            </item>
+        
+            <item>
+                <title>Got the Job!</title>
+                <description>&lt;p&gt;After sending over 50+ job applications, I finally got a job at a healthcare software company! The company, &lt;a href=&quot;https://www.interfaceware.com/&quot;&gt;iNTERFACEWARE&lt;/a&gt; specializes in making a healthcare integration engine called Iguana, which they use to solve healthcare system integration problems for healthcare organizations.&lt;/p&gt;
+
+&lt;p&gt;In the end, I got the job not by sending in my resume for screening, but by contacting the CEO of the company directly (I had met him a year earlier at a career event at my school), and asking to meet up for a quick coffee at their offices. He agreed, and the quick coffee turned into my first interview.&lt;/p&gt;
+
+&lt;p&gt;A month later, I got the job.&lt;/p&gt;
+</description>
+                <pubDate>Mon, 28 Aug 2017 00:00:00 -0500</pubDate>
+                <link>http://localhost:4000/2017/dummy4</link>
+                <guid isPermaLink="true">http://localhost:4000/2017/dummy4</guid>
+                
+                
+            </item>
+        
+            <item>
+                <title>Got the Job!</title>
+                <description>&lt;p&gt;After sending over 50+ job applications, I finally got a job at a healthcare software company! The company, &lt;a href=&quot;https://www.interfaceware.com/&quot;&gt;iNTERFACEWARE&lt;/a&gt; specializes in making a healthcare integration engine called Iguana, which they use to solve healthcare system integration problems for healthcare organizations.&lt;/p&gt;
+
+&lt;p&gt;In the end, I got the job not by sending in my resume for screening, but by contacting the CEO of the company directly (I had met him a year earlier at a career event at my school), and asking to meet up for a quick coffee at their offices. He agreed, and the quick coffee turned into my first interview.&lt;/p&gt;
+
+&lt;p&gt;A month later, I got the job.&lt;/p&gt;
+</description>
+                <pubDate>Mon, 28 Aug 2017 00:00:00 -0500</pubDate>
+                <link>http://localhost:4000/2017/dummy3</link>
+                <guid isPermaLink="true">http://localhost:4000/2017/dummy3</guid>
+                
+                
+            </item>
+        
+            <item>
+                <title>Got the Job!</title>
+                <description>&lt;p&gt;After sending over 50+ job applications, I finally got a job at a healthcare software company! The company, &lt;a href=&quot;https://www.interfaceware.com/&quot;&gt;iNTERFACEWARE&lt;/a&gt; specializes in making a healthcare integration engine called Iguana, which they use to solve healthcare system integration problems for healthcare organizations.&lt;/p&gt;
+
+&lt;p&gt;In the end, I got the job not by sending in my resume for screening, but by contacting the CEO of the company directly (I had met him a year earlier at a career event at my school), and asking to meet up for a quick coffee at their offices. He agreed, and the quick coffee turned into my first interview.&lt;/p&gt;
+
+&lt;p&gt;A month later, I got the job.&lt;/p&gt;
+</description>
+                <pubDate>Mon, 28 Aug 2017 00:00:00 -0500</pubDate>
+                <link>http://localhost:4000/2017/dummy2</link>
+                <guid isPermaLink="true">http://localhost:4000/2017/dummy2</guid>
+                
+                
+            </item>
+        
+            <item>
+                <title>Got the Job!</title>
+                <description>&lt;p&gt;After sending over 50+ job applications, I finally got a job at a healthcare software company! The company, &lt;a href=&quot;https://www.interfaceware.com/&quot;&gt;iNTERFACEWARE&lt;/a&gt; specializes in making a healthcare integration engine called Iguana, which they use to solve healthcare system integration problems for healthcare organizations.&lt;/p&gt;
+
+&lt;p&gt;In the end, I got the job not by sending in my resume for screening, but by contacting the CEO of the company directly (I had met him a year earlier at a career event at my school), and asking to meet up for a quick coffee at their offices. He agreed, and the quick coffee turned into my first interview.&lt;/p&gt;
+
+&lt;p&gt;A month later, I got the job.&lt;/p&gt;
+</description>
+                <pubDate>Mon, 28 Aug 2017 00:00:00 -0500</pubDate>
+                <link>http://localhost:4000/2017/dummy1</link>
+                <guid isPermaLink="true">http://localhost:4000/2017/dummy1</guid>
+                
+                
+            </item>
         
     </channel>
 </rss>
