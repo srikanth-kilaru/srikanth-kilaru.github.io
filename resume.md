@@ -22,4 +22,3 @@ If you have professional inquiries, grab a copy of one of these resume formats a
 
 <img src="{{ site.url }}/{{ page.html_image }}" style="float: left; padding: 2px 2px 2px 2px; margin: -4px 6px 4px 4px">
 [{{ site.url }}/{{ page.html_resume_text }}]({{ site.url }}/{{ page.html_resume }})
-
