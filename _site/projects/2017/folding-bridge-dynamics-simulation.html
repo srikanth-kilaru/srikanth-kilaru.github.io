@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    
+    
+    
+
+    <title>
+        Simulation of the Dynamics of a Folding Bridge · William Spies
+    </title>
+
+    
+    
+
+    
+
+    <meta name="description" content="
+        Coding a simulation of the dynamics of the three-leaf, folding Hörn bridge in Kiel, Germany.
+    "/>
+    <meta name="keywords" content="dynamics, software, mathematica, simulation, bridge dynamics, euler-lagrange">
+    <meta name="author" content="William Spies">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    
+    
+    
+
+    <!-- Social: Facebook / Open Graph -->
+    
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="William Spies">
+    <meta property="article:section" content="">
+    <meta property="article:tag" content="dynamics, software, mathematica, simulation, bridge dynamics, euler-lagrange">
+    <meta property="article:published_time" content="2017-12-12 00:00:00 -0600">
+    
+    <meta property="og:url" content="/projects/2017/folding-bridge-dynamics-simulation">
+    <meta property="og:title" content="
+        Simulation of the Dynamics of a Folding Bridge · William Spies
+    ">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="
+        Coding a simulation of the dynamics of the three-leaf, folding Hörn bridge in Kiel, Germany.
+    ">
+    <meta property="og:site_name" content="William Spies">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="/assets/js/modernizr.custom.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+        <script src="/assets/js/rem.min.js"></script>
+    <![endif]-->
+</head>
+
+
+    <body>
+
+        <div class="wrap">
+            <div class="masthead">
+                <div class="container">
+                    <h2 class="masthead-title">
+                        <a href="" title="William Spies" class="title">WILLIAM SPIES</a>
+                        <small>Engineer // Explorer</small>
+                    </h2>
+
+                    <div class="nav">
+    <ul class="top-menu">
+        <li><a href="/" title="Home"><i class="fa fa-home"></i></a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/tagged">Tags</a></li>
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+
+            <div id="content" class="container content">
+                <div class="project">
+    <div class="project-top-meta">
+        <div class="project-date">December 12, 2017</div>
+        <h1 class="project-title">Simulation of the Dynamics of a Folding Bridge</h1>
+    </div>
+
+    <p>At the end of the Fall 2017 term of my graduate studies, I wrote a simulation program in <strong><a href="https://www.wolfram.com/mathematica/">Wolfram Mathematica 11</a></strong> with the intent to try and recreate the dynamics of the Hörn bridge in Kiel, Germany. This bridge is well-known for its elegant design and <a href="https://www.youtube.com/watch?v=E5BF3Lvmi_8">unique opening and closing behavior</a>, so I opted to try and recreate the bridge as a project in my Machine Dynamics class. Thanks to its status as a unique feat of bridge engineering, there was some literature available which allowed me to glean some insights into the control and operation of the bridge. From there, it was all coding and evaluation in Mathematica.</p>
+
+<p><img src="/assets/images/projects/horn-bridge-sim/deploy.png" style="width:800px; padding:4px 4px 4px 4px;display: block" /></p>
+
+<p>The Mathematica project notebook evolved through three different stages:</p>
+<ul>
+  <li><strong>Initial problem setup &amp; physical characterization</strong></li>
+  <li><strong>Finding the correct constraints on the bridge’s operation</strong></li>
+  <li><strong>Modelling the impact condition and attempting some form of control over the bridge’s operation</strong></li>
+</ul>
+
+<p>The final form of the project is an animation of the bridge unfolding under the effects of gravity and experiencing an impact on the far side pylon. I implemented some basic controls, mostly so that the framework would exist should I choose to return later and install a control law sufficient to safely deploy the bridge. As of right now, it can only delay (or accelerate) the opening of the bridge under gravity, which is not enough to prevent a hard collision on the far pylon. For the purposes of getting some meaningful data out of the simulation, I made sure to take a reading of the velocity experienced at the end of the final leaf at the moment of impact. At the moment, the simulated bridge his far too hard to be considered “safe.”</p>
+
+<p><img src="/assets/images/projects/horn-bridge-sim/results.png" style="width:940px; padding:4px 4px 4px 4px; display:block" /></p>
+
+<p>This project, though I am admittedly not an avid Mathematica user, was an incredible amount of fun to work on. For those who would be interested in expanding on the foundations of the dynamic simulation already in place, or those curious to see an example of how I structured the evaluation and animation components, the source code for the project is available on <strong><a href="https://github.com/spieswl/horn-bridge-dynamics_sim">GitHub</a></strong>! Finally, send me a message (check the <a href="https://spieswl.github.io/about">About</a> page for the administrator’s contact information) if you have any comments or questions about the project!</p>
+
+<p><strong>BONUS:</strong> Here’s a GIF of the animation in action.</p>
+
+<p><img src="/assets/images/projects/horn-bridge-sim/animation.gif" style="width:480px; padding:4px 4px 4px 4px; display:block" /></p>
+
+
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+    <hr/>
+    
+    
+        <div class="footer-social-links">
+    <a href="http://www.spieswl.com/feed.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+    <a href="https://www.linkedin.com/in/william-lyle-spies-02/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.facebook.com/spieswl" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="http://spieswl.github.io/my-repos/" title="GitHub Repositories" target="_blank"><i class="fa fa-github-alt"></i></a>
+    <a href="http://spieswl.github.io/my-gists/" title="GitHub Gists" target="_blank"><i class="fa fa-code"></i></a>
+</div>
+
+    
+
+    <div class="copyright">Based on the ••• theme by <a href="https://heiswayi.nrird.com">Heiswayi Nrird</a> &middot; Compiled using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code" title="Source Code"></i> is available on <a href="https://github.com/spieswl/spieswl.github.io">GitHub</a> <i class="fa fa-github-alt"></i><br><i class="fa fa-copyright"></i> 2017 William Spies &middot; Covered under MIT License</div>
+</div>
+
+<script>
+(function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < (num - 1); j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+
+    </body>
+
+</html>
