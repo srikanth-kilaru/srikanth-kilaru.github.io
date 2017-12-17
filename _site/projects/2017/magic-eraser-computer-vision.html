@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    
+    
+    
+
+    <title>
+        Simple Texture Synthesis and Replacement with OpenCV · William Spies
+    </title>
+
+    
+    
+
+    
+
+    <meta name="description" content="
+        This project involved performing contextual texture replacement on pre-recorded video feed with OpenCV.
+    "/>
+    <meta name="keywords" content="software, python, computer vision, opencv, image processing, texture synthesis">
+    <meta name="author" content="William Spies">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    
+    
+    
+
+    <!-- Social: Facebook / Open Graph -->
+    
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="William Spies">
+    <meta property="article:section" content="">
+    <meta property="article:tag" content="software, python, computer vision, opencv, image processing, texture synthesis">
+    <meta property="article:published_time" content="2017-12-16 00:00:00 -0600">
+    
+    <meta property="og:url" content="/projects/2017/magic-eraser-computer-vision">
+    <meta property="og:title" content="
+        Simple Texture Synthesis and Replacement with OpenCV · William Spies
+    ">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="
+        This project involved performing contextual texture replacement on pre-recorded video feed with OpenCV.
+    ">
+    <meta property="og:site_name" content="William Spies">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="/assets/js/modernizr.custom.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+        <script src="/assets/js/rem.min.js"></script>
+    <![endif]-->
+</head>
+
+
+    <body>
+
+        <div class="wrap">
+            <div class="masthead">
+                <div class="container">
+                    <h2 class="masthead-title">
+                        <a href="" title="William Spies" class="title">WILLIAM SPIES</a>
+                        <small>Engineer // Explorer</small>
+                    </h2>
+
+                    <div class="nav">
+    <ul class="top-menu">
+        <li><a href="/" title="Home"><i class="fa fa-home"></i></a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/tagged">Tags</a></li>
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+
+            <div id="content" class="container content">
+                <div class="project">
+    <div class="project-top-meta">
+        <div class="project-date">December 16, 2017</div>
+        <h1 class="project-title">Simple Texture Synthesis and Replacement with OpenCV</h1>
+    </div>
+
+    <p>Every now and then, it can be fun to tackle otherwise straightforward or simple problems with the intention of seeing what you can do.</p>
+
+<p>As part of our introductory Computer Vision course at Northwestern, a <a href="https://github.com/laurenhut/">fellow colleague</a> and I teamed up to create a “Smart” eraser program using <strong><a href="https://www.python.org/">Python</a></strong> and <strong><a href="https://opencv.org/">OpenCV</a></strong>. Our program works by using some simple image processing techniques on each frame of a sampled video feed. For each frame, we identified red foreground handwriting against a background texture of printed words, erase the foreground handwriting based on the position of an ‘eraser’ cursor (in this case, a marker held near the top of the frame), and synthesize a new texture for the erased regions that blends in with the background paper.</p>
+
+<p>The “Smart” eraser program we developed operates on an AVI-format video file, using built-in <code class="highlighter-rouge">OpenCV</code> functionality as seen here:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">imageTiling</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="o">...</span>
+
+<span class="c"># Define the working path for the target video file, based on input 'videoFile'</span>
+<span class="n">vid_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="n">videoFile</span>
+<span class="n">vid_capture</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">vid_path</span><span class="p">)</span>
+
+<span class="c"># Read first frame from the video feed</span>
+<span class="n">frame_firstImage</span> <span class="o">=</span> <span class="n">vid_capture</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>We made some assumptions at the start of development that greatly simplified our path forward:</p>
+
+<ol>
+  <li><strong><em>We can identify (and, later, mask) the text by setting threshold values for pixels matching HSV values corresponding with red text.</em></strong></li>
+  <li><strong><em>The text being erased does not move throughout the video, so the original mask is valid for the duration of the video.</em></strong></li>
+  <li><strong><em>Erasing as little of the background texture as possible, while potentially making our texture synthesis more difficult, is preferable to preserve the integrity of the rest of the video.</em></strong></li>
+</ol>
+
+<p>Our solution was split into two components: one component (<code class="highlighter-rouge">magicEraser.py</code>) handled by myself and one component (<code class="highlighter-rouge">imageTiling.py</code>) handled by my teammate, Lauren. My component handled the parsing of the video feed, identifying and masking the foreground text, and passing the “masked” image to Lauren’s Python script. The following text is one part of the few functions required to identify, mask, and pass on the processed image from any arbitrary frame of the video:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">eraseTextWithMask</span><span class="p">(</span><span class="n">frame_BGR</span><span class="p">,</span> <span class="n">frame_HSV</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">replacement_texture</span><span class="p">):</span>
+
+    <span class="c"># Define frame height and width boundaries</span>
+    <span class="n">frame_height</span> <span class="o">=</span> <span class="n">frame_BGR</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Nominally 240</span>
+    <span class="n">frame_width</span> <span class="o">=</span> <span class="n">frame_BGR</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c"># Nominally 320</span>
+
+    <span class="c"># Initialize important mask variables</span>
+    <span class="n">frame_wandXCoord</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+    <span class="c"># HSV boundary ranges for "Red" (NOTE: Slightly different than original mask boundary values)</span>
+    <span class="n">mask_redLowerBound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">mask_redUpperBound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">])</span>
+
+    <span class="c"># Use OpenCV function to generate red image mask</span>
+    <span class="n">frame_redMask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">inRange</span><span class="p">(</span><span class="n">frame_HSV</span><span class="p">,</span> <span class="n">mask_redLowerBound</span><span class="p">,</span> <span class="n">mask_redUpperBound</span><span class="p">)</span>
+
+    <span class="c"># Erode and dilate the text mask until general enough to cover the marker text</span>
+    <span class="n">frame_erodedMask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">frame_redMask</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">frame_dilatedMask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">frame_erodedMask</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c"># Identify the location of the cursor based on the x-coordinate of the Red tip</span>
+    <span class="c"># The "break" statements are required to eject from the nested "for" loops when finding the first non-zero value</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">frame_height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">frame_width</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">frame_dilatedMask</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">frame_wandXCoord</span> <span class="o">=</span> <span class="n">k</span>
+
+            <span class="k">if</span> <span class="n">frame_wandXCoord</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">frame_wandXCoord</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+    <span class="c"># Set up occlusion masks for important areas to ignore as part of the texture tiling setup</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">frame_height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">frame_width</span><span class="p">):</span>
+
+            <span class="c"># Replace all text to the right of the marker tip with the white "screen"</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">frame_wandXCoord</span> <span class="ow">and</span> <span class="n">mask</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">255</span><span class="p">:</span>
+                <span class="n">frame_BGR</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">replacement_texture</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">frame_BGR</span>
+
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>Some challenges we identified along the way:</p>
+
+<ol>
+  <li><strong><em>There were regions we absolutely needed to prevent our texture synthesizer from pulling from to ensure that we could blend the new texture with the background texture.</em></strong></li>
+  <li><strong><em>The video feed we were given was very noisy. Morphological operations on the image were required to trim out noise and restore key areas for the masking and cursor-search operations.</em></strong></li>
+  <li><strong><em>Our initial design only included functionality to develop one synthesized ‘tile’ that ends up going everywhere. You can clearly see texture similarities in the final product.</em></strong></li>
+</ol>
+
+<p>The easiest way to show how our solution progressed is to pull up the input, intermediate results, and final output for an example frame of the video. White regions in the frame represent ‘erased’ text that needs to be filled in, while blue regions represent areas where we prevented the script from pulling samples from.</p>
+
+<p><img src="/assets/images/projects/magic-eraser-cv/results.png" style="width:1000px; padding:4px 4px 4px 4px;display: block" /></p>
+
+<p>We ended up with a fairly clean solution; one we are both relatively pleased with. Of course, the utility of a program that can do simplistic texture replacement on one single video source is extraordinarily low, but we learned a good deal about video and image processing, applying <code class="highlighter-rouge">OpenCV</code> functions, and ended up getting some practice with standard computer vision tasks. The project code is <a href="https://github.com/spieswl/magic-eraser">available on GitHub</a>, as well as the documentation and images supporting our result, but beyond some post-presentation clean-up, we will probably not be changing aspects of this project in the future. If you have comments or questions about this project or our solution, please reach out! I can be reached via the Administrator contact information on the <strong><a href="https://spieswl.github.io/about">About</a></strong> page.</p>
+
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+    <hr/>
+    
+    
+        <div class="footer-social-links">
+    <a href="http://www.spieswl.com/feed.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+    <a href="https://www.linkedin.com/in/william-lyle-spies-02/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.facebook.com/spieswl" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="http://spieswl.github.io/my-repos/" title="GitHub Repositories" target="_blank"><i class="fa fa-github-alt"></i></a>
+    <a href="http://spieswl.github.io/my-gists/" title="GitHub Gists" target="_blank"><i class="fa fa-code"></i></a>
+</div>
+
+    
+
+    <div class="copyright">Based on the ••• theme by <a href="https://heiswayi.nrird.com">Heiswayi Nrird</a> &middot; Compiled using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code" title="Source Code"></i> is available on <a href="https://github.com/spieswl/spieswl.github.io">GitHub</a> <i class="fa fa-github-alt"></i><br><i class="fa fa-copyright"></i> 2017 William Spies &middot; Covered under MIT License</div>
+</div>
+
+<script>
+(function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < (num - 1); j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+
+    </body>
+
+</html>
