@@ -21,7 +21,7 @@ This project was implemented in ROS using the python programming language. It co
 
 ## DETAILED DESCRIPTION
 
-##EXECUTIVE CONTROL (MASTER NODE)
+## EXECUTIVE CONTROL (MASTER NODE)
 The Master node is the co-ordinator of the whole program execution. It has three main input sources: (1) sensory data in the form of filtered point cloud data, (2) speech commands translated into integers for the state representation and strings for object names, and (3) status update messages. 
 
 The master node keeps track of what state the demo is in based on the encoded state messages received from the speech node. Based on the current state and the incoming state, it executes the appropriate functionality. It continuously receives point cloud data from the point cloud processing node. The point cloud is stored in a sorted fashion based upon the eucledian distance from the origin. This ensures that Baxter starts picking up objects nearest to it during the learning phase. It also groups these point cloud objects together using a simple algorithm where two objects with similar height/width ratio are considered objects of the same group type, e.g. "cans". 
@@ -30,14 +30,14 @@ During the Learning phase, these objects and groups are associated with a name s
 
 In the Fetch phase, the Master node sends the object location to a node responsible for controlling Baxter's arm and picking up objects.
 
-##SPEECH RECOGNITION
+## SPEECH RECOGNITION
 The speech recognition node listens for specific keywords from the user and updates Baxter's operating state accordingly. Speech recognition capability is done using PocketSphinx, Carnegie Mellon University's open source large vocabulary, speaker-independent continuous speech recognition engine.
 
-##COMPUTER VISION
+## COMPUTER VISION
 An ASUS XtionPRO LIVE is used to view Baxter's environment. Point cloud locations and the centroid of each object is published to a topic that the Master node subscribes to. This part of the project relies heavily on the perception_pcl ROS package to compute multiple point clouds of various objects on a flat surface. The a launch file reads in raw point cloud data from the XtionPRO and filters it to a more manageable dataset using the filters described below. A cluster extractor node takes the filtered point cloud data and extracts point clusters. Finally, the centroid, height, width, and width:height ratio are computed, with centroid values transformed to Baxter's frame of reference.
 
-##KINEMATICS
+## KINEMATICS
 Baxter's movements were controlled using the MoveIt! ROS package developed by Mike Ferguson. The node uses path planning, including collision detection, to reach the goal. The node responsible for moving Baxter receives the centroid and the object id from the Master node, uses MoveIt! to pick up the object, and goes to a predetermined joint location for lifting the object up.
 
 
-##For more details, please view the [README and source code](https://github.com/HannahEmnett/InspectorBaxter) of this project on Github.
+## For more details, please view the [README and source code](https://github.com/HannahEmnett/InspectorBaxter) of this project on Github.
