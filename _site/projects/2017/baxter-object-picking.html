@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    
+    
+    
+
+    <title>
+        Baxter the butler · Srikanth Kilaru
+    </title>
+
+    
+    
+
+    
+
+    <meta name="description" content="
+        Baxter being trained to identify and fetch objects using voice commands and Computer vision
+    "/>
+    <meta name="keywords" content="software, baxter, point cloud, cv, object recognition, grasping, manipulation, ros, robotics, control, voice command, hri, python">
+    <meta name="author" content="Srikanth Kilaru">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    
+    
+    
+
+    <!-- Social: Facebook / Open Graph -->
+    
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Srikanth Kilaru">
+    <meta property="article:section" content="">
+    <meta property="article:tag" content="software, baxter, point cloud, cv, object recognition, grasping, manipulation, ros, robotics, control, voice command, hri, python">
+    <meta property="article:published_time" content="2017-12-13 00:00:00 -0600">
+    
+    <meta property="og:url" content="http://localhost:4000/srikanth-kilaru.github.io/projects/2017/baxter-object-picking">
+    <meta property="og:title" content="
+        Baxter the butler · Srikanth Kilaru
+    ">
+    <meta property="og:image" content="http://localhost:4000/srikanth-kilaru.github.io">
+    <meta property="og:description" content="
+        Baxter being trained to identify and fetch objects using voice commands and Computer vision
+    ">
+    <meta property="og:site_name" content="Srikanth Kilaru">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/srikanth-kilaru.github.io/feed.xml">
+
+    <link rel="stylesheet" href="http://localhost:4000/srikanth-kilaru.github.io/assets/css/style.css">
+
+    <script src="http://localhost:4000/srikanth-kilaru.github.io/assets/js/modernizr.custom.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+        <script src="http://localhost:4000/srikanth-kilaru.github.io/assets/js/rem.min.js"></script>
+    <![endif]-->
+</head>
+
+
+    <body>
+
+        <div class="wrap">
+            <div class="masthead">
+                <div class="container">
+                    <h2 class="masthead-title">
+                        <a href="http://localhost:4000" title="Srikanth Kilaru" class="title">SRIKANTH KILARU</a>
+                        <small>Visionary Problem solver</small>
+                    </h2>
+
+                    <div class="nav">
+    <ul class="top-menu">
+        <li><a href="/" title="Home"><i class="fa fa-home"></i></a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/projects">Projects</a></li>
+
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/tagged">Tags</a></li>
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+
+            <div id="content" class="container content">
+                <div class="project">
+    <div class="project-top-meta">
+        <div class="project-date">December 13, 2017</div>
+        <h1 class="project-title">Baxter the butler</h1>
+    </div>
+
+    <h2 id="overview">OVERVIEW</h2>
+<p>The goal of this project was to train Baxter to identify objects using a name provided by a human voice command and subsequently fetch the object when the human operator commands the robot using the previously named object.
+Computer vision based perception using point clouds identify and classify the objects into different bins by their geometry/shape and then each individual object is further tagged with a human operator provided name. The project has two phases: an initial training phase where Baxter learns the objects via human voice commands, followed by a fetching phase where Baxter picks up objects that are asked for by the user by providing a name.</p>
+
+<p>This project was implemented in ROS using the python programming language. It consisted of four software functional blocks that were implemented as separate ROS nodes: a speech processing node that leveraged the opensource software <a href="http://www.speech.cs.cmu.edu/pocketsphinx/">pocketsphinx</a>, a point cloud processing node that depends on the ROS packages <a href="https://github.com/ros-perception/perception_pcl">perception_pcl</a> and <a href="https://github.com/ros-drivers/openni2_camera">openni2_camera</a>, and a movement and grasping node that interfaces with the ROS package <a href="https://github.com/mikeferguson/moveit_python">moveit_python</a>.</p>
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/AbHzo5lAx5A?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen=""></iframe></div>
+
+<h2 id="detailed-description">DETAILED DESCRIPTION</h2>
+
+<h3 id="executive-control-master-node">EXECUTIVE CONTROL (MASTER NODE)</h3>
+<p>The Master node is the co-ordinator of the whole program execution. It has three main input sources: (1) sensory data in the form of filtered point cloud data, (2) speech commands translated into integers for the state representation and strings for object names, and (3) status update messages.</p>
+
+<p>The master node keeps maintains state for the entire system and enables state transitions based on sensory and kinematic events. For example voice command events are received from the speech node, object point cloud information is received from the vision node. Based on the current state and the incoming events, it executes the appropriate functionality and signals other nodes with relevant information and commands. It continuously receives point cloud data from the point cloud processing (vision) node. The point cloud is stored in a sorted fashion based upon the eucledian distance from the origin. This ensures that Baxter starts picking up objects nearest to it during the learning phase. It also groups these point cloud objects together using a simple algorithm where two objects with similar height/width ratio are considered objects of the same group type, e.g. “cans”.</p>
+
+<p>During the Learning phase, these objects and groups are associated with a name string provided by the user. When the object has been named, the Master node sends the location of the next object (as per euclidean distance) so that the robot arm moves to that location and picks up the object for naming. This process iterates through until all the objects are named. Baxter then enters a standby mode, returning its arm to the neutral position.</p>
+
+<p>In the Fetch phase, the Master node sends the object location to a node responsible for controlling Baxter’s arm and picking up objects.</p>
+
+<h3 id="speech-recognition">SPEECH RECOGNITION</h3>
+<p>The speech recognition node listens for specific keywords from the user and updates Baxter’s operating state accordingly. Speech recognition capability is done using PocketSphinx, Carnegie Mellon University’s open source large vocabulary, speaker-independent continuous speech recognition engine.</p>
+
+<h3 id="computer-vision">COMPUTER VISION</h3>
+<p>An ASUS XtionPRO LIVE is used to view Baxter’s environment. Point cloud locations and the centroid of each object is published to a topic that the Master node subscribes to. This part of the project relies heavily on the perception_pcl ROS package to compute multiple point clouds of various objects on a flat surface. The a launch file reads in raw point cloud data from the XtionPRO and filters it to a more manageable dataset using the filters described below. A cluster extractor node takes the filtered point cloud data and extracts point clusters. Finally, the centroid, height, width, and width:height ratio are computed, with centroid values transformed to Baxter’s frame of reference.</p>
+
+<h3 id="kinematics">KINEMATICS</h3>
+<p>Baxter’s movements were controlled using the MoveIt! ROS package developed by Mike Ferguson. The node uses path planning, including collision detection, to reach the goal. The node responsible for moving Baxter receives the centroid and the object id from the Master node, uses MoveIt! to pick up the object, and goes to a predetermined joint location for lifting the object up.</p>
+
+<h3 id="for-more-details-please-view-the-readme-and-source-code-of-this-project-on-github">For more details, please view the <a href="https://github.com/HannahEmnett/InspectorBaxter">README and source code</a> of this project on Github.</h3>
+
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+    <hr/>
+    
+    
+        <div class="footer-social-links">
+    <a href="https://www.linkedin.com/in/srikanth-kilaru-7331a3/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/srikanth-kilaru?tab=repositories" title="GitHub Repositories" target="_blank"><i class="fa fa-github-alt"></i></a>
+</div>
+
+    
+
+    <div class="copyright">Based on the ••• theme by <a href="https://heiswayi.nrird.com">Heiswayi Nrird</a> &middot; Compiled using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code" title="Source Code"></i> is available on <a href="https://github.com/srikanth-kilaru/srikanth-kilaru.github.io">GitHub</a> <i class="fa fa-github-alt"></i><br><i class="fa fa-copyright"></i> 2018 Srikanth Kilaru &middot; Covered under MIT License</div>
+</div>
+
+<script>
+(function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < (num - 1); j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+
+    </body>
+
+</html>
