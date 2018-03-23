@@ -51,7 +51,7 @@ An ASUS XtionPRO LIVE is used to view objects that need to be grasped. Point clo
 This is the main node where the touch sense based localization and grasping logic is implemented.
 This node subscribes to ROS topics that publish the sensory data coming in from the sensor reading node and the pointcloud information (PCL data) coming in from the computer vision node.
 The PCL data gives the centroid location of the object to be grasped and this is the location in Cartesian coordinates of Sawyer's base frame. Sawyer is commanded to move the end effector to this location. Once this location is reached, the grippers close in small increments, both to prevent deforming delicate objects as well as notice any touch contact. If there is partial contact on any of the sensors (either the inner or the outer), the end effector and the gripper move in such a way as to deepen the grasp. If there is zero contact at the initially commanded location, the end effector is commanded to the next search location within close proximity of the initial location and it repeats the whole search process by slowly closing the grippers. In this way the gripper iterates through a series of search locations in and around the location initially identified as the object's centroid location by the PCL data.
-#### For more details on the implementation of the search algorithm, please view the [README and source code](https://github.com/srikanth-kilaru/winter_proj) of this project on Github.
+##### For more details on the implementation of the search algorithm, please view the [README and source code](https://github.com/srikanth-kilaru/winter_proj) of this project on Github.
 
 
 ### Kinematics
