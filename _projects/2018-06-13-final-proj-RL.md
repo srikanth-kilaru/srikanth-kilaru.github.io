@@ -20,7 +20,7 @@ A well known method used by Reinforcement Learning algorithms is the Policy sear
 My final MSR project, a Capstone project that is individually accomplished under an advisor much like a MS Thesis in some programs, is to develop the software that implements the algorithm developed by members of the Robotic Artificial Intelligence and Learning Lab at UC Berkeley.
 
 ## Project Outcomes
-The main goal of my MSR final project would be to write software to implement and test the algorithm outlined in this Berkeley paper in both the MuJoCo simulation environment (first) and  with the Baxter robot in a real environment. 
+The main goal of my MSR final project would be to write software to implement and test the algorithm outlined in this [Berkeley paper](https://arxiv.org/pdf/1504.00702.pdf) in both the MuJoCo simulation environment (first) and  with the Baxter robot in a real environment. 
 ### MuJoCo simulation
 The simulation experiment in MuJoCo would implement the 
 2D peg insertion task with 6 state dimensions and 2 action dimensions
