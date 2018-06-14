@@ -19,8 +19,6 @@ A well known method used by Reinforcement Learning algorithms is the Policy sear
 
 My final MSR project, a Capstone project that is individually accomplished under an advisor much like a MS Thesis in some programs, is to develop the software that implements the algorithm developed by members of the Robotic Artificial Intelligence and Learning Lab at UC Berkeley.
 
-
-
 ## Project Outcomes
 The main goal of my MSR final project would be to write software to implement and test the algorithm outlined in this Berkeley paper in both the MuJoCo simulation environment (first) and  with the Baxter robot in a real environment. 
 ### MuJoCo simulation
@@ -56,7 +54,7 @@ Baxter will perform the shape sorting cube task. This requires the robot to inse
 - [Deep RL bootcamp](https://sites.google.com/view/deep-rl-bootcamp/lectures)
 
 ### Software implementation
-- Code from a class I took for solving the [Lunar lander RL problem in OpenAI Gym](https://github.com/srikanth-kilaru/final-project/ll-v2.py).
+- Code from a class I took for solving the [Lunar lander RL problem in OpenAI Gym](https://github.com/srikanth-kilaru/final-project/blob/master/ll-v2.py).
 
 ### Simulation software and Deep Learning Frameworks
 - Helpful website for installation of [Caffe2](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
