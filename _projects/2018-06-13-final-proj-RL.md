@@ -54,7 +54,7 @@ Baxter will perform the shape sorting cube task. This requires the robot to inse
 - [Deep RL bootcamp](https://sites.google.com/view/deep-rl-bootcamp/lectures)
 
 ### Software implementation
-- Code from a class I took for solving the [Lunar lander RL problem in OpenAI Gym](https://github.com/srikanth-kilaru/final-project/blob/master/ll-v2.py).
+- Code from a class I took for solving the [Lunar lander RL problem in OpenAI Gym](https://github.com/srikanth-kilaru/final-project).
 
 ### Simulation software and Deep Learning Frameworks
 - Helpful website for installation of [Caffe2](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
