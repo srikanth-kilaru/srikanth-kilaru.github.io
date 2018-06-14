@@ -31,7 +31,7 @@ The simulation experiment in MuJoCo would implement the
 ### Baxter experiment
 Baxter will perform the shape sorting cube task. This requires the robot to insert a red trapezoid into a trapezoidal hole on a shape sorting cube. During training, the cube will be positioned at nine different positions, situated at the corners, edges, and middle of a rectangular region 16 cm × 10 cm in size. During training, the shape sorting cube will be moved through the training positions by using the left arm. A trial will be considered successful if the bottom face of the trapezoid is completely inside the shape sorting cube, such that if the robot were to release the trapezoid, it will fall inside the cube.
 
-### Project Dependencies
+### Project Dependencies and Current Status (June 14 2018)
 - A GPU enabled machine for running the learning algorithms. The initial attempt would be to use a Google cloud Linux VM with 4-8 GPUs (P100  or greater). I have this setup already up and running on GCP. If the network latency and jitter experienced by the communication between the local lab camera and the GCP VM turns out to be a problem, we have to find a local GPU compute resource. 
 - Caffe2 software. This algorithm uses CNN and Caffe is a very popular framework to implement CNNs especially as it is optimized for GPUs. I have Caffe2 installed on my GCP VM and I have successfully run training and inference using Facebook’s open source CNN algorithm code named Detectron (Fast RCNN with FPN and RPN) using the COCO image dataset. I may end up switching to a different, and possibly much simpler CNN, to closely align with the Berkeley paper’s CNN choice. Regardless, I feel like I am well equipped for this particular aspect of my task.
 - MuJoCo – I have this software licensed and installed on my linux laptop and working. I am in the learning mode for using and developing in MuJuCo, as of this writing (Version 1).
@@ -39,5 +39,27 @@ Baxter will perform the shape sorting cube task. This requires the robot to inse
 - Shape sorting cube – Last but not least, the shape sorting cube and the geometrical pieces like the trapezoid that fit into it are the objects of robotic manipulation. If these are not available for ready-made purchase, I will build this using a 3D printer and/or laser cutter in the MSR lab. 
 
 
+## Code and learning resources
 
-##### For more details on the software implementation, please view the [README and source code](https://github.com/srikanth-kilaru/final_proj) of this project on Github.
+### Research papers
+- The research paper that descibes the algorithm I will be implementing - [End-to-End Training of Deep Visuomotor Policies](https://arxiv.org/pdf/1504.00702.pdf)
+- Other interesting research papers in related areas -
+- [Deep Visual Foresight for Planning Robot Motion](https://arxiv.org/pdf/1610.00696.pdf)
+- [Deep Reinforcement Learning for Robotic Manipulation with Asynchronous Off-Policy Updates](https://arxiv.org/pdf/1610.00633.pdf)
+- [Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection](http://journals.sagepub.com/doi/pdf/10.1177/0278364917710318)
+
+### RL courses and reading
+- [Reinforcement learning foundations](https://jermwatt.github.io/mlrefined/)
+- [Stanford class CS231n](http://cs231n.stanford.edu/). See the 2017 lectures if you would like to see video.
+- Berkeley class [CS 294: Deep Reinforcement Learning, Fall 2018](http://rail.eecs.berkeley.edu/deeprlcourse/)
+- [RL course by David Silver](https://www.youtube.com/watch?v=2pWv7GOvuf0&app=desktop)
+- [Deep RL bootcamp](https://sites.google.com/view/deep-rl-bootcamp/lectures)
+
+### Software implementation
+- Code from a class I took for solving the [Lunar lander RL problem in OpenAI Gym] (https://github.com/srikanth-kilaru/final_proj/ll-v2.py).
+
+### Simulation software and Deep Learning Frameworks
+- Helpful website for installation of [Caffe2](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md)
+- A CNN for for [object recognition](https://github.com/facebookresearch/Detectron)
+- Programming in [MuJoCo](http://www.mujoco.org/book/programming.html)
+- [OpenAI Gym simulation](https://openai.com/) environment for RL algorithms
