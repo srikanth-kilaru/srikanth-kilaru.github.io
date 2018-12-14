@@ -41,9 +41,9 @@ At the beginning of each trajectory, along with the selection of a new goal, the
 ### Reward  function
 Multiple versions of reward functions were tried in the early stages of development and the following function was finally settled upon as it had the best performance
 
-Reward = w_l2 \* l2\*\*2 + w_log \* log(l2\*\*2 + α) + w_u \* ||u||\*\*2
+Reward = w_l2 \* l2\*\*2 + w_log \* log(l2\*\*2 + α) + w_u \* \|\|u\|\|\*\*2
 
-where l2_sqrd is the square of the Eucledian distance between the center of the cyclinder's circular face towards the shape sorting cube and a point at a fixed height above the center of the circular hole in the shape sorting cube. w_l2 was chosen as 1e-3.
+where l2 is the Eucledian distance between the center of the cyclinder's circular face towards the shape sorting cube and a point at a fixed height above the center of the circular hole in the shape sorting cube. w_l2 was chosen as 1e-3.
 
 The reward function has the log of the l2 squared distance term to produce higher rewards as the distance between the points becomes closer. alpha was specified as 1e-6, and w_log was chosen as 1.0.
 
