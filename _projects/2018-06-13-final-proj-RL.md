@@ -21,7 +21,7 @@ My implementation uses the same interface between the Policy Gradient agent and 
 
 For more information on the Policy gradient algorithm please see the [online lecture notes for the CS294 class](http://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf) taught at UC Berkeley. I am very thankful to Prof. Sergey Levine for making this class available online to non-UC Berkeley students.
 
-[Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/final-project)
+[Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="htt
 ps://www.youtube.com/embed/AbHzo5lAx5A?ecver=2" width="640" height="360" frame
