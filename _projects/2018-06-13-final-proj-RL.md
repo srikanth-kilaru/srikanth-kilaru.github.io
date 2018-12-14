@@ -17,7 +17,9 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 ## Project Synopsis
 My MSR Capstone project is to enable Sawyer robot to learn the task of inserting a solid block into a shape sorting cube.
 Policy Gradient, a popular Reinforcement Learning algorithm, is used to learn the policy which takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
-My implementation uses the same interface between the Policy Gradient agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated envoronments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in cartesian space were used during training. During testing, the learnt policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase. For more information on the Policy gradient algorithm please see the [online lecture notes for the CS294 class](http://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf) taught at UC Berkeley. I am very thankful to Prof. Sergey Levine for making this class available online to non-UC Berkeley students.
+My implementation uses the same interface between the Policy Gradient agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated envoronments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in cartesian space were used during training. During testing, the learnt policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
+
+For more information on the Policy gradient algorithm please see the [online lecture notes for the CS294 class](http://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf) taught at UC Berkeley. I am very thankful to Prof. Sergey Levine for making this class available online to non-UC Berkeley students.
 
 [Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/final-project)
 
@@ -39,7 +41,7 @@ At the beginning of each trajectory, along with the selection of a new goal, the
 ### Reward  function
 Multiple versions of reward functions were tried in the early stages of development and the following function was finally settled upon as it had the best performance
 
-Reward = w_l2 * l2_sqrd + w_log * log(l2_sqrd + α) + w_u * ||u||**2
+Reward = w_l2 * l2\**2 + w_log * log(l2\**2 + α) + w_u * ||u||\**2
 
 where l2_sqrd is the square of the Eucledian distance between the center of the cyclinder's circular face towards the shape sorting cube and a point at a fixed height above the center of the circular hole in the shape sorting cube. w_l2 was chosen as 1e-3.
 
