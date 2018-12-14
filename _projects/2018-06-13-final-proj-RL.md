@@ -2,8 +2,8 @@
 layout:             project
 title:              "Reinforcement Learning"
 description:        "Reinforcement Learning of control policies for Robotic manipulation"
-keywords:           software, Reinforcement Learning, Convolution Neural Networks, CNN, Deep Learning, Q Learning, OpenAI, Gym, MuJoCo, Sawyer, Object recognition, Grasping, Manipulation, ROS, Robotics, Optimal Control, Python
-tags:               [Software, Reinforcement Learning, Convolution Neural Networks, CNN, Deep Learning, Q Learning, OpenAI, Gym, MuJoCo, Sawyer, Object recognition, Grasping, Manipulation, ROS, Robotics, Optimal Control, Python]
+keywords:           software, Reinforcement Learning, Policy Gradient, Convolution Neural Networks, CNN, Deep Learning, Q Learning, OpenAI, Gym, MuJoCo, Sawyer, Object recognition, Grasping, Manipulation, ROS, Robotics, Optimal Control, Python
+tags:               [Software, Reinforcement Learning, Policy Gradient, Convolution Neural Networks, CNN, Deep Learning, Q Learning, OpenAI, Gym, MuJoCo, Sawyer, Object recognition, Grasping, Manipulation, ROS, Robotics, Optimal Control, Python]
 
 folders:
   images:           "final-project" # This path is project-dependent; don't forget to change it!
@@ -23,8 +23,7 @@ For more information on the Policy gradient algorithm please see the [online lec
 
 [Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
 
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="htt
-ps://www.youtube.com/embed/AbHzo5lAx5A?ecver=2" width="640" height="360" frame
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/watch?v=L9RBmCA04q4" width="640" height="360" frame
 border="0" allow="autoplay; encrypted-media" style="position:absolute;width:10
 0%;height:100%;left:0" allowfullscreen></iframe></div>
 
