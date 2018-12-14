@@ -23,7 +23,8 @@ For more information on the Policy gradient algorithm please see the [online lec
 
 [Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
 
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/watch?v=L9RBmCA04q4" width="640" height="360" frame
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://youtu.be/FWMsvvGFMtU" width="640" height="360" frame
 border="0" allow="autoplay; encrypted-media" style="position:absolute;width:10
 0%;height:100%;left:0" allowfullscreen></iframe></div>
 
