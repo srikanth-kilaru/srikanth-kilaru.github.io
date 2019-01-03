@@ -23,6 +23,10 @@ For more information on the Policy gradient algorithm please see the [online lec
 
 [Please see the github repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
 
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/FWMsvvGFMtU?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/_a9Cef3pkJk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
 [![](http://img.youtube.com/vi/FWMsvvGFMtU/0.jpg)](http://www.youtube.com/watch?v=FWMsvvGFMtU "Sawyer implementing Policy Gradient")
 
 [![](http://img.youtube.com/vi/_a9Cef3pkJk/0.jpg)](http://www.youtube.com/watch?v=_a9Cef3pkJk "Sawyer implementing Policy Gradient")
