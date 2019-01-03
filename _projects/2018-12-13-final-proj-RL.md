@@ -30,12 +30,12 @@ Please see the GitHub repo for details of the software implementation-
 [Actor-Critic](https://github.com/srikanth-kilaru/rl-projects/tree/master/actor-critic)
 
 ## Experiment details
-#### Policy Gradient
+
 Sawyer's task is to insert a green cylinder into a circular hole on a shape sorting cube.
 Sawyer's joints right_j3, right_j4, right_j5 were controlled by the policy while other joints were not controlled and maintained in fixed configurations purely for space constraint reasons and for the purpose of avoiding collisions with the environment during training phase.
 
 ### Goal Specifications
-#### Policy Gradient
+
 Two goals were specified in Sawyer's workspace. Goals can be specfied as joint angles or cartesian coordinates. If goals are specified as angles, PyKDL along with object geometry is used to transform the goal angles into a goal in cartesian space. During training, specified goals are iterated through in a round robin fashion with a small amount of gaussian noise added to the goal location.
 
 ### Initial conditions
