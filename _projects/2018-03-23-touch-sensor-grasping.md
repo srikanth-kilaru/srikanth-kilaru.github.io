@@ -21,9 +21,13 @@ The goal of this project is to use a similar approach in localizing and grasping
 
 To this end, I used touch sensors from [Robotic Materials](http://roboticmaterials.com/rm/product/smart-gripper-pads-for-robotiq/) that were mounted on both the gripper fingers. I used the [ASUS XtionPRO LIVE](https://www.asus.com/us/3D-Sensor/Xtion_PRO_LIVE/) for vision sensing.
 
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/vK-mzlKT3Xk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<div style="float:left;padding:12px;">
+<iframe src="https://www.youtube.com/embed/vK-mzlKT3Xk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
 
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/dgfRlBENDBY?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<div style=div style="float:left;padding:12px;">
+<iframe src="https://www.youtube.com/embed/dgfRlBENDBY?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
 
 
 This project was implemented in ROS using the python programming language and it consists of three main software functional blocks:
