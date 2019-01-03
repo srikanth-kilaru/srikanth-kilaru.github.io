@@ -25,7 +25,7 @@ To this end, I used touch sensors from [Robotic Materials](http://roboticmateria
 <iframe src="https://www.youtube.com/embed/vK-mzlKT3Xk?ecver=2" width="320" height="160" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
 </div>
 
-<div style=div style="position:relative;height:0;padding-bottom:56.25%">
+<div style="position:relative;height:0;padding-bottom:56.25%">
 <iframe src="https://www.youtube.com/embed/dgfRlBENDBY?ecver=2" width="320" height="160" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
 </div>
 
