@@ -12,24 +12,18 @@ published:          true
 ---
 
 ## Project Synopsis
-My MSR Capstone project is to enable Sawyer robot to learn the task of inserting a solid block into a shape sorting cube.
-I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, for Sawyer to learn the policy required to perform the manipulation task of inserting an object into a shape sorting block. The policy takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
+My MSR Capstone project is to enable Sawyer robot to learn the manipulation task of inserting a solid block into a shape sorting cube.
+I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, for Sawyer to learn the policy required to perform the manipulation task. The policy takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
 My implementation uses the same interface between the RL agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated envoronments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in cartesian space were used during training. During testing, the learnt policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
 
 ## Motivation
 Robots can perform impressive tasks including surgery and assisting in manufacturing.  However, for a robot to perform these tasks, a human operator has to either manually operate the robot or the robot follows a specific pre-programmed algorithm in order to perform the required task. Both these approaches are limited in that they do not enable learning new tasks in an autonomous fashion. Reinforcement learning holds the promise of enabling a robot with learning skills required for autonomous operation. However, this is is still an emerging area of research and major challenges remain, even for learning tasks that are simple for a 2 year old to learn.
 
-## Project Synopsis
-My MSR Capstone project is to enable Sawyer robot to learn the task of inserting a solid block into a shape sorting cube.
-Policy Gradient, a popular Reinforcement Learning algorithm, is used to learn the policy which takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
-
-For more information on the Policy gradient algorithm please see the [online lecture notes for the CS294 class](http://rail.eecs.berkeley.edu/deeprlcourse/static/slides/lec-5.pdf) taught at UC Berkeley. I am very thankful to Prof. Sergey Levine for making this class available online to non-UC Berkeley students.
-
-[Please see the GitHub repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
-
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/FWMsvvGFMtU?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/_a9Cef3pkJk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
+[Please see the GitHub repo for details of the software implementation](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
 
 ## Experiment details
 Sawyer's task is to insert a green cylinder into a circular hole on a shape sorting cube.
