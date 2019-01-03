@@ -27,6 +27,7 @@ For more information on the Policy gradient algorithm please see the [online lec
 
 [![](http://img.youtube.com/vi/_a9Cef3pkJk/0.jpg)](http://www.youtube.com/watch?v=_a9Cef3pkJk "Sawyer implementing Policy Gradient")
 
+
 ## Experiment details
 Sawyer's task is to insert a green cylinder into a circular hole on a shape sorting cube.
 Sawyer's joints right_j3, right_j4, right_j5 were controlled by the policy while other joints were not controlled and maintained in fixed configurations purely for space constraint reasons and for the purpose of avoiding collisions with the environment during training phase.

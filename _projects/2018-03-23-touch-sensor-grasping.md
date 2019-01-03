@@ -23,6 +23,9 @@ To this end, I used touch sensors from [Robotic Materials](http://roboticmateria
 
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/gripped.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
 
+[![](http://img.youtube.com/vi/vK-mzlKT3Xk/0.jpg)](https://www.youtube.com/watch?v=vK-mzlKT3Xk "Sawyer implementing touch sense assisted grasping")
+
+
 This project was implemented in ROS using the python programming language and it consists of three main software functional blocks:
 1. A sensor reading node from [Robotic Materials](https://github.com/RoboticMaterials/finger-sensors-ros) that reads touch sensor data coming in through a USB port and publishes this data on ROS topics '/left_finger/sai' and '/right_finger/sai' software.
 2. A point cloud processing node that depends on the ROS packages [perception_pcl](https://github.com/ros-perception/perception_pcl) and [openni2_camera](https://github.com/ros-drivers/openni2_camera).
@@ -36,6 +39,7 @@ Each of the two fingers of Sawyer's grippers is attached to a touch sensor pad. 
 
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/robotiq_drawing_sensor_num.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/finger_closeup.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+
 
 Each of the eight touch sensors on each of the two fingers has a different sensitivity and noise profiles and therefore has to be calibrated individually to detect whether it has touched an object or not. In addition the concept of touch is not a binary notion since the sensor values goes up as the object comes closer to the sensor even before a complete contact is made.
 See the picture below to get an idea of the different levels of sensor values and noise levels for the two fingers without any object in contact.
