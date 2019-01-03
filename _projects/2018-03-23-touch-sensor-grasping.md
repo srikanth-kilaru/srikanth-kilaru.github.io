@@ -23,6 +23,8 @@ To this end, I used touch sensors from [Robotic Materials](http://roboticmateria
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/vK-mzlKT3Xk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/dgfRlBENDBY?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
 
 This project was implemented in ROS using the python programming language and it consists of three main software functional blocks:
 1. A sensor reading node from [Robotic Materials](https://github.com/RoboticMaterials/finger-sensors-ros) that reads touch sensor data coming in through a USB port and publishes this data on ROS topics '/left_finger/sai' and '/right_finger/sai' software.

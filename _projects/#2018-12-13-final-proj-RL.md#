@@ -13,7 +13,7 @@ published:          true
 
 ## Project Synopsis
 My MSR Capstone project is to enable Sawyer robot to learn the task of inserting a solid block into a shape sorting cube.
-Policy Gradient, a popular Reinforcement Learning algorithm, was used to learn the policy which takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
+I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, were used to learn the policy which takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
 My implementation uses the same interface between the Policy Gradient agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated envoronments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in cartesian space were used during training. During testing, the learnt policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
 
 ## Motivation
