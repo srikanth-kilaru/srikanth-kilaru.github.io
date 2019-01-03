@@ -14,7 +14,7 @@ published:          true
 ## Project Synopsis
 My MSR Capstone project is to enable Sawyer robot to learn the manipulation task of inserting a solid block into a shape sorting cube.
 I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, for Sawyer to learn the policy required to perform the manipulation task. The policy takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
-My implementation uses the same interface between the RL agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated envoronments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in cartesian space were used during training. During testing, the learnt policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
+My implementation uses the same interface between the RL agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated environments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in Cartesian space were used during training. During testing, the learned policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
 
 ## Motivation
 Robots can perform impressive tasks including surgery and assisting in manufacturing.  However, for a robot to perform these tasks, a human operator has to either manually operate the robot or the robot follows a specific pre-programmed algorithm in order to perform the required task. Both these approaches are limited in that they do not enable learning new tasks in an autonomous fashion. Reinforcement learning holds the promise of enabling a robot with learning skills required for autonomous operation. However, this is is still an emerging area of research and major challenges remain, even for learning tasks that are simple for a 2 year old to learn.
@@ -36,7 +36,7 @@ Sawyer's joints right_j3, right_j4, right_j5 were controlled by the policy while
 
 ### Goal Specifications
 
-Two goals were specified in Sawyer's workspace. Goals can be specfied as joint angles or cartesian coordinates. If goals are specified as angles, PyKDL along with object geometry is used to transform the goal angles into a goal in cartesian space. During training, specified goals are iterated through in a round robin fashion with a small amount of gaussian noise added to the goal location.
+Two goals were specified in Sawyer's workspace. Goals can be specfied as joint angles or Cartesian coordinates. If goals are specified as angles, PyKDL along with object geometry is used to transform the goal angles into a goal in Cartesian space. During training, specified goals are iterated through in a round robin fashion with a small amount of gaussian noise added to the goal location.
 
 ### Initial conditions
 At the beginning of each trajectory, along with the selection of a new goal, the joints return to a region contained by a gaussian around the fixed and pre-defined initial joint angles
@@ -61,7 +61,7 @@ A reward discount factor of 0.9 and a learning rate of 0.005 worked well.
 The policy network consisted of two layers and 64 tanh activation units and the output layer was made of linear activations and the dimension of output, i.e. dimensions of control action vector
 
 ### Observations (Input to policy)
-For velcoity control mode
+For velocity control mode
 
 [angle_0, angle_1, ...., angle_N, x_object, y_object, z_object, x_goal, y_goal, z_goal]
 
