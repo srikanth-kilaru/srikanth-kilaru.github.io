@@ -15,22 +15,24 @@ published:          true
 My final project in the MS Robotics program at Northwestern University used modern reinforcement learning techniques and training data collected on a real robot to enable a Sawyer robot from Rethink Robotics to learn the task of inserting a solid block into a shape sorting cube. 
 I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, for Sawyer to learn the policy required to perform the manipulation task. The policy takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
 My implementation uses the same interface between the RL agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated environments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in Cartesian space were used during training. During testing, the learned policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
-Before the learning begins, the object coordinates in the end-effector frame are computed using a Computer Vision pipeline. The same pipeline is also used for computing the coordinates of the goal in the robot frame.
+Before the learning begins, the pose of the object in the end-effector frame and the goal poses in Sawyer's base frame used during the training phase are computed using a Computer Vision pipeline. The same pipeline is also used for computing the pose of the goal in the robot frame. Cartesian coordinates of 3 points on a surface of the object are used to identify the pose of the object.
 
 ## Motivation
 Robots can perform impressive tasks including surgery and assisting in manufacturing.  However, for a robot to perform these tasks, a human operator has to either manually operate the robot or the robot follows a specific pre-programmed algorithm in order to perform the required task. Both these approaches are limited in that they do not enable learning new tasks in an autonomous fashion. Reinforcement learning holds the promise of enabling a robot with learning skills required for autonomous operation. However, this is is still an emerging area of research and major challenges remain, even for learning tasks that are simple for a 2 year old to learn.
 
 ## Results
 
-####                                      Policy Gradient Average returns
-
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
-
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/FWMsvvGFMtU?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/_a9Cef3pkJk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
-## Software Implementation
+
+####                                      Policy Gradient Average returns
+
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+
+
+## Algorithm Implementation
 Please see the GitHub repo for details of the software implementation-
 
 [Policy Gradient](https://github.com/srikanth-kilaru/rl-projects/tree/master/pg)
@@ -41,12 +43,12 @@ Please see the GitHub repo for details of the software implementation-
 
 ## Experiment details
 
-Sawyer's task is to insert a green cylinder into a circular hole on a shape sorting cube.
+Sawyer's task is to insert an object into a hole of a specified shape on the surface of a shape sorting cube.
 Sawyer's joints right_j3, right_j4, right_j5 were controlled by the policy while other joints were not controlled and maintained in fixed configurations purely for space constraint reasons and for the purpose of avoiding collisions with the environment during training phase.
 
 ### Goal Specifications
 
-Two goals were specified in Sawyer's workspace. Goals were specfied as Cartesian coordinates. During training, specified goals are iterated through in a round robin fashion with a small amount of gaussian noise added to the goal location.
+Two goal poses were specified in Sawyer's workspace. Cartesian coordinates of 3 points on the specified hole of the shape sorting cube are used to identify the pose of the goal. Similarly, Cartesian coordinates of 3 points on the outward facing surface of the object are used to identify the pose of the object. During training, specified goals are iterated through in a round robin fashion with a small amount of gaussian noise added to the goal location.
 
 ### Initial conditions
 At the beginning of each trajectory, along with the selection of a new goal, the joints return to a region contained by a gaussian around the fixed and pre-defined initial joint angles
