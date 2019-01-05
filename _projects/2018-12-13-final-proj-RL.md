@@ -22,7 +22,7 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 ## Results
 
-                                              *Policy Gradient Average returns*
+####                                      Policy Gradient Average returns
 
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
 
