@@ -22,7 +22,7 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 ## Results
 
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px;display: block">
                                            *Policy Gradient Average returns*
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/FWMsvvGFMtU?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
