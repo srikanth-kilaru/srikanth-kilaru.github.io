@@ -36,6 +36,8 @@ Please see the GitHub repo for details of the software implementation-
 
 [Actor-Critic](https://github.com/srikanth-kilaru/rl-projects/tree/master/actor-critic)
 
+[Computer Vision pipeline](https://github.com/srikanth-kilaru/rl-projects/tree/master/vision)
+
 ## Experiment details
 
 Sawyer's task is to insert a green cylinder into a circular hole on a shape sorting cube.
