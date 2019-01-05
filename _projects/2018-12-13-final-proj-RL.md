@@ -94,6 +94,13 @@ For torque control mode
 
 where N is the number of joints being controlled
 
+## Dependencies
+
+* Tensorflow 1.11.0
+* OpenCV 3.4 or greater
+* ROS Kinetic or greater
+* Python 2.7
+
 ## Learning resources
 - UC Berkeley course [CS 294: Deep Reinforcement Learning, Fall 2018](http://rail.eecs.berkeley.edu/deeprlcourse/)
 - [RL course by David Silver](https://www.youtube.com/watch?v=2pWv7GOvuf0&app=desktop)
