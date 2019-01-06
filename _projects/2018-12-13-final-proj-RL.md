@@ -28,11 +28,9 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 
 <div align="center">
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/policy_gradient_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
-<p>Policy Gradient Average returns</p> </div>
-<div align="center">
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/actor_critic_average_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
-<p>Actor-Critic Average returns</p> </div>
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/ac_pg_avg_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+<p>Average returns</p> </div>
+
 
 ## Algorithm Implementation
 Please see the GitHub repo for details of the software implementation-
