@@ -26,10 +26,11 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/_a9Cef3pkJk?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
+### Comparison of average returns from Policy Gradient and Actor-Critic algorithms
 
+As expected, Policy Gradient's and Actor-Critic's average returns were close, however Policy Gradient performs slightly better. In addition, Actor-Critic algorithm starts from negative returns initially but significantly improves within the first 10 or 15 iterations.
 <div align="center">
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/ac_pg_avg_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
-<p>Average returns</p> </div>
 
 
 ## Algorithm Implementation
@@ -65,12 +66,17 @@ The reward function has the log of the l2 squared distance term to produce highe
 u is the control output vector and w_u was chosen as 1e-2.
 
 ### Hyperparameter search
-Both reward to go and advantage normalization options were enabled
-A maximum trajectory length of 800 and total timesteps of 4800 between each policy iteration. With this configuration, each policy iteration took around 9 minutes and a total of ~16 hours to train over 100 policy iterations. Increasing these quantities increases the training time and did not necessarily produce a better policy.
 
-A reward discount factor of 0.9 and a learning rate of 0.005 worked well.
+<div align="center">
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/hyperparams.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
 
-The policy network consisted of two layers and 64 tanh activation units and the output layer was made of linear activations and the dimension of output, i.e. dimensions of control action vector
+Both reward to go and advantage normalization options were enabled for both algorithms.
+Increasing the trajectory length or minimum timesteps per batch only increases the training time and did not necessarily produce a better policy.
+
+For Policy Gradient a reward discount factor of 0.9 and a learning rate of 0.005 worked well.
+For Actor-Critic a reward discount factor of 0.9 and a learning rate of 0.01 for the actor network and 0.0125 for the critic network worked well.
+
+The policy network consists of tanh activation units for the input and hidden layers and linear activations for the output layer.
 
 ### Observations (Input to policy)
 For velocity control mode
@@ -83,7 +89,7 @@ For torque control mode
 
 where N is the number of joints being controlled
 
-## Actions (Output of policy)
+### Actions (Output of policy)
 For velcoity control mode
 
 [vel_0, vel_1, ...., vel_N]
@@ -94,6 +100,10 @@ For torque control mode
 
 where N is the number of joints being controlled
 
+### Platform
+
+Both RL algorithms were run on a Ubuntu laptop with a Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, connected to Sawyer over a direct Ethernet link.
+
 ## Dependencies
 
 * Tensorflow 1.11.0
@@ -102,6 +112,7 @@ where N is the number of joints being controlled
 * Python 2.7
 
 ## Learning resources
+
 - UC Berkeley course [CS 294: Deep Reinforcement Learning, Fall 2018](http://rail.eecs.berkeley.edu/deeprlcourse/)
 - [RL course by David Silver](https://www.youtube.com/watch?v=2pWv7GOvuf0&app=desktop)
 - [Deep RL bootcamp](https://sites.google.com/view/deep-rl-bootcamp/lectures)
@@ -110,5 +121,6 @@ where N is the number of joints being controlled
 
 
 ### Simulation software for testing RL algorithms
+
 - [Programming in MuJoCo](http://www.mujoco.org/book/programming.html)
 - [OpenAI Gym simulation](https://openai.com/) environment for RL algorithms
