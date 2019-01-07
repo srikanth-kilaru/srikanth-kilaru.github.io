@@ -26,6 +26,8 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/v7xsVb1JHw0?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
+Out of 100 trials conducted, the Policy Gradient algorithm had 91% success in reaching the goal within two centimeters, and 81% success in reaching the goal within one centimeter. The Actor-Critic algorithm had 85% success in reaching the goal within two centimeters, and 76% success in reaching the goal within one centimeter.
+
 ### Comparison of average returns from Policy Gradient and Actor-Critic algorithms
 
 As expected, Policy Gradient's and Actor-Critic's average returns were close, however Policy Gradient performs slightly better. In addition, Actor-Critic algorithm starts from negative returns initially but significantly improves within the first 10 or 15 iterations.
