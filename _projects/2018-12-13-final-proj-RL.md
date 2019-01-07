@@ -68,7 +68,8 @@ u is the control output vector and w_u was chosen as 1e-2.
 ### Hyperparameter search
 
 <div align="center">
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/hyperparams.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/hyperparams.png" style="width:480px; padding:4px 4px 4px 4px;display: block"></div>
+<p>Hyperparameters for Actor-Critic and Policy Gradient algorithms</p> </div>
 
 Both reward to go and advantage normalization options were enabled for both algorithms.
 Increasing the trajectory length or minimum timesteps per batch only increases the training time and did not necessarily produce a better policy.
