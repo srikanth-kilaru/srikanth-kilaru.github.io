@@ -14,8 +14,10 @@ published:          true
 ## Project Synopsis
 My final project in the MS Robotics program at Northwestern University used modern reinforcement learning techniques and training data collected on a real robot to enable a Sawyer robot from Rethink Robotics to learn the task of inserting a solid block into a shape sorting cube. 
 I implemented the Policy Gradient and Actor-Critic, two popular Reinforcement Learning algorithms, for Sawyer to learn the policy required to perform the manipulation task. The policy takes as input observations of the environment (i.e. robot joint angles and joint velocities, position of object in robot's gripper and location of shape sorting cube), and outputs control actions in continuous domain as either joint torques or velocities.
+
 My implementation uses the same interface between the RL agent and the Sawyer ROS environment as the interface in OpenAI's Gym simulated environments. Several different combinations of hyper-parameters were searched to find the optimal tradeoff between policy accuracy and training time. Multiple goal locations in Cartesian space were used during training. During testing, the learned policy was able to guide Sawyer to these goals within the accuracy threshold used during the training phase.
-Before the learning begins, the pose of the object in the end-effector frame and the goal poses in Sawyer's base frame used during the training phase are computed using a Computer Vision pipeline. The same pipeline is also used for computing the pose of the goal in the robot frame. Cartesian coordinates of 3 points on a surface of the object are used to identify the pose of the object.
+
+Before the training phase, the pose of the object in the end-effector frame and the training goal poses in Sawyer's base frame used during the training phase are computed using a Computer Vision pipeline. The same pipeline is also used for computing the pose of the test goal in the robot frame. Cartesian coordinates of 3 points on a surface of the object are used to identify the pose of the object.
 
 ## Motivation
 Robots can perform impressive tasks including surgery and assisting in manufacturing.  However, for a robot to perform these tasks, a human operator has to either manually operate the robot or the robot follows a specific pre-programmed algorithm in order to perform the required task. Both these approaches are limited in that they do not enable learning new tasks in an autonomous fashion. Reinforcement learning holds the promise of enabling a robot with learning skills required for autonomous operation. However, this is is still an emerging area of research and major challenges remain, even for learning tasks that are simple for a 2 year old to learn.
@@ -26,11 +28,12 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/v7xsVb1JHw0?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 
+
 Out of 100 trials conducted, the Policy Gradient algorithm had 91% success in reaching the goal within two centimeters, and 81% success in reaching the goal within one centimeter. The Actor-Critic algorithm had 85% success in reaching the goal within two centimeters, and 76% success in reaching the goal within one centimeter.
 
 ### Comparison of average returns from Policy Gradient and Actor-Critic algorithms
 
-As expected, Policy Gradient's and Actor-Critic's average returns were close, however Policy Gradient performs slightly better. In addition, Actor-Critic algorithm starts from negative returns initially but significantly improves within the first 10 or 15 iterations.
+As expected, Policy Gradient's and Actor-Critic's average returns were close, and Policy Gradient performed slightly better. In addition, Actor-Critic algorithm starts from negative returns initially but significantly improves within the first 10 or 15 iterations.
 <div align="center">
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/ac_pg_avg_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block"><p>Comparison of average returns for Actor-Critic and Policy Gradient algorithms</p></div>
 
