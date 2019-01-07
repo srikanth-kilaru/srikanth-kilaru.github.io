@@ -30,7 +30,7 @@ Robots can perform impressive tasks including surgery and assisting in manufactu
 
 As expected, Policy Gradient's and Actor-Critic's average returns were close, however Policy Gradient performs slightly better. In addition, Actor-Critic algorithm starts from negative returns initially but significantly improves within the first 10 or 15 iterations.
 <div align="center">
-<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/ac_pg_avg_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block">
+<img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/ac_pg_avg_returns.png" style="width:480px; padding:4px 4px 4px 4px;display: block"><p>Comparison of average returns for Actor-Critic and Policy Gradient algorithms</p></div>
 
 
 ## Algorithm Implementation
@@ -69,7 +69,7 @@ u is the control output vector and w_u was chosen as 1e-2.
 
 <div align="center">
 <img src="{{ site.url }}/{{ site.project_assets }}/{{ page.folders.images }}/hyperparams.png" style="width:480px; padding:4px 4px 4px 4px;display: block"></div>
-<p>Hyperparameters for Actor-Critic and Policy Gradient algorithms</p> </div>
+<p>Hyperparameters for Actor-Critic and Policy Gradient algorithms</p></div>
 
 Both reward to go and advantage normalization options were enabled for both algorithms.
 Increasing the trajectory length or minimum timesteps per batch only increases the training time and did not necessarily produce a better policy.
