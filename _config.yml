@@ -1,6 +1,5 @@
 # Basic site info
 title:                  "Srikanth Kilaru"
-tagline:                "Visionary Problem solver"
 description:            "Student projects Portfolio site"
 keywords:               "Srikanth, Machine Learning, product, engineering, mechatronics, robotics"
 show_social_icons:      true # edit file in /_includes/social_links.html
@@ -8,7 +7,7 @@ og_locale:              "en_US"
 
 # Site settings & folders
 url:                    "https://srikanth-kilaru.github.io"
-baseurl:                "/srikanth-kilaru.github.io" 
+baseurl:                "/srikanth-kilaru.github.io"
 project_assets:         assets/images/projects
 
 # Site author info
@@ -21,15 +20,14 @@ author:
 collections:
     projects:
         output:         true
-        permalink:      /projects/:year/:title
+        permalink:      /projects/:year/:title/
 
 # Build settings
 source:                 ./
 destination:            ./_site
-permalink:              /insights/:year/:title
+permalink:              /insights/:year/:title/
 markdown:               kramdown
 highlighter:            rouge
-timezone:               America/Chicago
 exclude:                ["README.md", "LICENSE.md"]
 
 # Site configurations
@@ -47,6 +45,5 @@ sass:
     sass_dir:           assets/css/base
     style:              compressed # expanded
 
-
-plugins_dir:
+plugins:
     - jekyll-sitemap
