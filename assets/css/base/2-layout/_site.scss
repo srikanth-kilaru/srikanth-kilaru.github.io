@@ -19,26 +19,27 @@ body {
     padding: 0;
     margin: 0;
 
-    color: #515151;
+    color: #3f4652;
     background-color: #fff;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 a {
-    color: #069;
+    color: #0b6bcb;
     text-decoration: none;
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all 500ms ease;
+    -webkit-transition: all 150ms ease;
+    -moz-transition: all 150ms ease;
+    -o-transition: all 150ms ease;
+    transition: all 150ms ease;
 
     &:hover {
-        background-color: #069;
-        color: #fff;
+        color: #084b8e;
+        text-decoration: underline;
+        text-underline-offset: 3px;
     }
 }
 
@@ -267,13 +268,15 @@ tbody tr:nth-child(odd) {
     a {
         position: relative;
         height: auto;
-        width: 25px;
+        width: 28px;
 
         padding: 5px 5px;
 
+        border-radius: 8px;
+
         display: inline-block;
-        background: #f0f0f0;
-        color: #777;
+        background: #f0f2f4;
+        color: #57606a;
         text-align: center;
         -webkit-transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
         -moz-transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
@@ -283,7 +286,7 @@ tbody tr:nth-child(odd) {
 
         &:hover {
             color: #fff;
-            background: #111;
+            background: #0b6bcb;
         }
     }
 }
@@ -319,30 +322,30 @@ tbody tr:nth-child(odd) {
 }
 
 .masthead {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eaecef;
 
-    background-color: #f3f3f3;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    background-color: #fff;
 }
 
 .masthead-title {
     margin-top: 2rem;
     margin-bottom: 0;
 
-    color: #505050;
+    color: #1f2328;
     /*text-align: center;*/
 
     a {
-        color: #505050;
+        color: #1f2328;
         font-weight: bold;
-        font-family: 'Fira Sans Regular', monospace;
+        letter-spacing: -0.02em;
 
         &:hover {
-            background-color: transparent;
+            text-decoration: none;
+            color: #0b6bcb;
         }
     }
 
@@ -405,28 +408,23 @@ tbody tr:nth-child(odd) {
         float: left;
 
         a {
-            padding: 5px 10px;
+            padding: 6px 14px;
             margin-left: 2px;
             margin-right: 2px;
 
-            border: 1px solid #ccc;
-            border-bottom: 0;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
+            -webkit-border-radius: 999px;
+            -moz-border-radius: 999px;
+            border-radius: 999px;
 
-            color: #666;
-            background: #fff;
+            color: #57606a;
+            background: transparent;
             white-space: nowrap;
-            letter-spacing: 1px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+            letter-spacing: 0.3px;
 
             &:hover {
-                border: 1px solid #777;
-
-                background: #000;
-                color: #fff;
-                box-shadow: 0 1px 2px rgba(0,0,0,0.35);
+                background: #f0f2f4;
+                color: #1f2328;
+                text-decoration: none;
             }
         }
     }
@@ -465,19 +463,19 @@ a.skip:hover {
     margin-bottom: 16px;
 
     a.tag-anchor {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
         margin-top: 4px;
         margin-right: 4px;
         margin-bottom: 4px;
 
         border: 1px solid transparent;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        border-radius: 999px;
 
         display: inline-block;
-        background: #f0f0f0;
+        background: #f0f2f4;
         color: #444;
         white-space: nowrap;
     }
@@ -485,7 +483,8 @@ a.skip:hover {
     a.tag-anchor:focus,
     a.tag-anchor:hover {
         color: #fff;
-        background: #069;
+        background: #0b6bcb;
+        text-decoration: none;
     }
 }
 
