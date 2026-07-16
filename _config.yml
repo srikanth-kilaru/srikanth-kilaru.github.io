@@ -7,7 +7,7 @@ og_locale:              "en_US"
 
 # Site settings & folders
 url:                    "https://srikanth-kilaru.github.io"
-baseurl:                "/srikanth-kilaru.github.io"
+baseurl:                ""
 project_assets:         assets/images/projects
 
 # Site author info
